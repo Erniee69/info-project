@@ -4,6 +4,8 @@ public class Starship extends Actor {
     
     private final int speed = 2;
     private final int zoomFactor = 10;
+    private int bulletDelayCounter = 0;
+    private int bulletDelay = 40;
     
     public Starship() {
         
@@ -21,6 +23,14 @@ public class Starship extends Actor {
         }
         if (Greenfoot.isKeyDown("A")) {
             posX -= speed;
+        }
+        if (Greenfoot.isKeyDown("space") && bulletDelayCounter == 0) {
+            Bullet bullet = new Bullet();
+            this.getWorld().addObject(bullet, posX, posY);
+            bulletDelayCounter = bulletDelay;
+        }
+        if (bulletDelayCounter > 0) {
+            bulletDelayCounter -= 1;
         }
         
         posX = Math.min(posX, 570);
