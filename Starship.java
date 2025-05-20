@@ -32,8 +32,11 @@ public class Starship extends Actor {
         if (bulletDelayCounter > 0) {
             bulletDelayCounter -= 1;
         }
+        if (this.isTouching(EnemyBullet.class)) {
+            // TODO: Die
+        }
         
-        posX = Math.min(posX, 570);
+        posX = Math.min(posX, ((MyWorld) this.getWorld()).width - 30);
         posX = Math.max(30, posX);
         
         this.setLocation(posX, posY);

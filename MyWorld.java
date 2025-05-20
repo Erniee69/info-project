@@ -2,8 +2,8 @@ import greenfoot.*;
 
 public class MyWorld extends World {
     
-    public static final int width = 600;
-    public static final int height = 400;
+    public static final int width = 662;
+    public static final int height = 450;
     
     public MyWorld() {    
         super(width, height, 1);
@@ -25,7 +25,7 @@ public class MyWorld extends World {
         
         int paddingX = (width - countX * enemyWidth);
         int paddingY = (height - countY * enemyHeight);
-        
+
         countY -= 2; // remove 2 rows of enemys for spaceship space
         
         for (int i = 0; i < countX; i++) {

@@ -17,5 +17,11 @@ public class Enemy extends Actor {
             this.getWorld().removeObject(bullet);
             this.getWorld().removeObject(this);
         }
+        
+        int num = (int)(Math.random() * 1000);
+        if (num == 0) {
+            EnemyBullet bullet = new EnemyBullet();
+            this.getWorld().addObject(bullet, this.getX(), this.getY());
+        }
     }
 }
