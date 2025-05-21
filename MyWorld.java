@@ -10,6 +10,11 @@ public class MyWorld extends World {
         Starship starship = new Starship();
         this.addObject(starship, width / 2, height - 30);
         
+        resetWorld();
+    }
+    
+    public void resetWorld() {
+        
         buildEnemyGrid();
     }
     

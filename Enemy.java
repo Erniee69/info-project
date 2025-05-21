@@ -12,16 +12,22 @@ public class Enemy extends Actor {
     }
 
     public void act() {
-        if (this.isTouching(Bullet.class)) {
-            Bullet bullet = (Bullet) this.getOneIntersectingObject(Bullet.class);
-            this.getWorld().removeObject(bullet);
-            this.getWorld().removeObject(this);
-        }
         
         int num = (int)(Math.random() * 1000);
         if (num == 0) {
             EnemyBullet bullet = new EnemyBullet();
             this.getWorld().addObject(bullet, this.getX(), this.getY());
+        }
+        
+        if (this.isTouching(Bullet.class)) {
+            Bullet bullet = (Bullet) this.getOneIntersectingObject(Bullet.class);
+            this.getWorld().removeObject(bullet);
+            int num2 = (int)(Math.random() * 10);
+            if (num2 == 0) {
+                Powerup powerup = new Powerup();
+                this.getWorld().addObject(powerup, this.getX(), this.getY());
+            }
+            this.getWorld().removeObject(this);
         }
     }
 }
