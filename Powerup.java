@@ -2,7 +2,7 @@ import greenfoot.*;
 
 public class Powerup extends Actor {
     
-    public final int zoomFactor = 10;
+    public final int zoomFactor = 5;
     public final int speed = 3;
     
     public Powerup() {

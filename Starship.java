@@ -42,7 +42,8 @@ public class Starship extends Actor {
             powerupTimeCounter -= 1;
         }
         if (this.isTouching(EnemyBullet.class)) {
-            ((MyWorld) this.getWorld()).resetWorld();
+            StatusScreen screen = new StatusScreen(StatusScreen.ScreenType.GameOver);
+            this.getWorld().addObject(screen, MyWorld.width / 2, MyWorld.height / 2);
             Greenfoot.stop();
         }
         if (this.isTouching(Powerup.class)) {

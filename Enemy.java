@@ -27,6 +27,11 @@ public class Enemy extends Actor {
                 Powerup powerup = new Powerup();
                 this.getWorld().addObject(powerup, this.getX(), this.getY());
             }
+            if (this.getWorld().getObjects(Enemy.class).size() == 1) {
+                StatusScreen screen = new StatusScreen(StatusScreen.ScreenType.YouWin);
+                this.getWorld().addObject(screen, MyWorld.width / 2, MyWorld.height / 2);
+                Greenfoot.stop();
+            }
             this.getWorld().removeObject(this);
         }
     }
